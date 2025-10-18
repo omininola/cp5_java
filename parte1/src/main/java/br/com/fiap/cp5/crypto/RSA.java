@@ -2,6 +2,7 @@ package br.com.fiap.cp5.crypto;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class RSA {
@@ -31,13 +32,13 @@ public class RSA {
     }
 
     private BigInteger calcPublicExponent(BigInteger phi) {
-        BigInteger publicExponent = BigInteger.ZERO;
+        BigInteger e = BigInteger.valueOf(3);
         
-        while(phi.gcd(e).intValue() > 1) {
-            publicExponent = publicExponent.add(BigInteger.TWO);
+        while (phi.gcd(e).intValue() > 1) {
+            e = e.add(BigInteger.TWO);
         }
 
-        return publicExponent;
+        return e;
     }
 
     private BigInteger calcPrivateExponent(BigInteger e, BigInteger phi) {
@@ -56,13 +57,13 @@ public class RSA {
         return true;
     }
 
-    public List<BigInteger> encrypt(String msg) {
+    public static List<BigInteger> encrypt(String msg, HashMap<String, BigInteger> pubKey) {
         List<BigInteger> encrypted = new ArrayList<BigInteger>();
 
         for (int i = 0; i < msg.length(); i++) {
             char c = msg.charAt(i);
             BigInteger m = BigInteger.valueOf(c);
-            BigInteger cipherValue = m.modPow(this.e, this.n);
+            BigInteger cipherValue = m.modPow(pubKey.get("e"), pubKey.get("n"));
             encrypted.add(cipherValue);
         }
 
@@ -79,6 +80,14 @@ public class RSA {
         }
 
         return decrypted.toString();
+    }
+
+    public HashMap<String, BigInteger> getPublicKey() {
+        HashMap<String, BigInteger> pubKey = new HashMap<>();
+        pubKey.put("e", this.e);
+        pubKey.put("n", this.n);
+
+        return pubKey;
     }
 
 }
