@@ -1,0 +1,25 @@
+package br.com.fiap.cp5.cp5_java.dto;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.*;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
+@Builder
+public class UserRequestDTO {
+
+    @NotBlank
+    private String name;
+
+    @NotBlank @Email
+    private String email;
+
+    @Size(min = 8, max = 15)
+    @NotBlank
+    private String password;
+
+}
