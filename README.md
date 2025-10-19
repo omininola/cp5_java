@@ -9,6 +9,7 @@
 | Sofia Andrade Petruk | 556585 |
 | Lucas de Assis Fialho | 557884 |
 | Luiz Sadao Kamada | 557652 |
+| Raphaela de Oliveira Tatto | 554983 |
 
 ## IDE Utilizadas
 
