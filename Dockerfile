@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install openjdk-17-jdk maven -y
 WORKDIR /app
 
 # Copie o arquivo pom.xml e o código-fonte do projeto para o contêiner
-COPY pom.xml .
-COPY src ./src
+COPY parte2/pom.xml .
+COPY parte2/src ./src
 
 
 # Execute a construção do Maven ignorando os testes
@@ -31,7 +31,7 @@ EXPOSE 8080
 WORKDIR /app
 
 # Copie o arquivo JAR gerado para a imagem final
-COPY --from=build /app/target/cp4-java-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/cp5-java-0.0.1-SNAPSHOT.jar app.jar
 
 # Comando para executar o aplicativo
 ENTRYPOINT ["java", "-jar", "app.jar"]
