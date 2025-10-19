@@ -15,7 +15,7 @@
 
 - Visual Studio Code
 - IntelliJ
-cxcxc
+
 ## Geral
 
 ### Inicialização
