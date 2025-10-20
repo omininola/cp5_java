@@ -54,6 +54,9 @@ Ex: Olá!
 
 ## Parte 2
 
+### Vídeo de demonstração do projeto
+Youtube: [https://youtu.be/ZyTqhM5u8ls](https://youtu.be/ZyTqhM5u8ls)
+
 ### Tecnologias Utilizadas
 
 - **Java 17** - Linguagem de programação principal
