@@ -29,6 +29,8 @@ public class RSA {
         this.phi = (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
         this.e = calcPublicExponent(this.phi);
         this.d = calcPrivateExponent(this.e, this.phi);
+
+        System.out.println(this.toString());
     }
 
     private BigInteger calcPublicExponent(BigInteger phi) {
@@ -88,6 +90,37 @@ public class RSA {
         pubKey.put("n", this.n);
 
         return pubKey;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("\nValor de P: ");
+        sb.append(this.p);
+        sb.append("\n");
+
+        sb.append("\nValor de Q: ");
+        sb.append(this.q);
+        sb.append("\n");
+
+        sb.append("\nValor de N: ");
+        sb.append(this.n);
+        sb.append("\n");
+
+        sb.append("\nValor de PHI: ");
+        sb.append(this.phi);
+        sb.append("\n");
+
+        sb.append("\nValor de E: ");
+        sb.append(this.e);
+        sb.append("\n");
+
+        sb.append("\nValor de D: ");
+        sb.append(this.d);
+        sb.append("\n");
+
+        return sb.toString();
     }
 
 }
