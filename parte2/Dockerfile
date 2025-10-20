@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install openjdk-17-jdk maven -y
 WORKDIR /app
 
 # Copie o arquivo pom.xml e o código-fonte do projeto para o contêiner
-COPY parte2/pom.xml .
-COPY parte2/src ./src
+COPY project/pom.xml .
+COPY project/src ./src
 
 
 # Execute a construção do Maven ignorando os testes
